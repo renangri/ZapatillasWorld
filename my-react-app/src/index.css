@@ -1,0 +1,67 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+h1{text-align: center;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+color: blue;}
+.contenedor { background-color: rgb(140, 141, 141);
+}
+img{
+  align-items: flex-end;
+  
+}
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+      picture {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 100px;
+        display: flex;
+  align-items: center;
+  justify-content: center;
+      }
+
+      picture.is-small {
+        width: 50px;
+       
+      }
+
+      picture.is-large {
+        width: 200px;
+      }
+
+      img {
+        box-shadow: 0 0 15px #999;
+        border-radius: 50%;
+        width: 100%;
+      }
+
+      img.disabled {
+        opacity: 0.3;
+      }
+
+      i {
+        align-content: center;
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        min-height: 50px;
+        display: block;
+        width: 100%;
+      }
+      div {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+        font-size: 24px;
+      }

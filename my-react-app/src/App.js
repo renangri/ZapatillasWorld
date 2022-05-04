@@ -1,6 +1,9 @@
 
+
 import './App.css';
-import Navbar1 from './componentes/Navbar';
+import Navbar1 from './componentes/Navbar';//Me traigo el componente Navbar
+import ItemListContainer from "./componentes/ItemListContainer"; //Me traigo el componente ItemListContainer
+
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
@@ -9,10 +12,12 @@ function App() {
      
 
       <h1 className=" bg-dark text-white"  >ZapatillasWorld</h1>
-        
-
+     
       
-         <Navbar1/>
+      <Navbar1/>
+        
+      <ItemListContainer greeting="Hola!" />
+      
  
     </div>
   );
@@ -21,3 +26,4 @@ function App() {
 
 
 export default App;
+

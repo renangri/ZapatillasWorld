@@ -6,7 +6,7 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import  Form from 'react-bootstrap/Form';
 import FormControl from 'react-bootstrap/FormControl';
 import Button from 'react-bootstrap/Button';
-
+import CartWidget from './CartWidget';
  function Navbar1() {
     
   return(
@@ -14,6 +14,8 @@ import Button from 'react-bootstrap/Button';
     
 <Navbar bg="dark" expand="lg"  variant="dark">
   <Container fluid>
+
+
     <Navbar.Brand href="#">ZapasWorld</Navbar.Brand>
     <Navbar.Toggle aria-controls="navbarScroll" />
     <Navbar.Collapse id="navbarScroll">
@@ -44,7 +46,9 @@ import Button from 'react-bootstrap/Button';
         />
         <Button variant="success" >Buscar</Button>
       </Form>
+      
     </Navbar.Collapse>
+    <CartWidget/>
   </Container>
 </Navbar>
  

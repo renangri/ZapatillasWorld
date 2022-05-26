@@ -1,10 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,100&display=swap');
+
 .App {
   text-align: center;
- 
 }
 
 .App-logo {
-  height: 40vmin;
+  height: 60px;
   pointer-events: none;
 }
 
@@ -36,4 +37,65 @@
   to {
     transform: rotate(360deg);
   }
+}
+.listaProductos {
+
+    justify-content: center;
+    padding-top: 50px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+    font-style: normal;
+}
+
+
+.items {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr 1fr;
+	margin: 40px 0 40px 0;
+	gap: 20px;
+}
+.itemContainer {
+  width: 100%;
+  display: flex;
+	flex-direction: row;
+	align-items: center;
+  }
+
+  .detailText {
+    text-align: justify;
+}
+  .theItems {
+  margin: 40px 0 40px 0;
+  width: 100%;
+  display: flex;
+	flex-direction: row;
+	align-items: center;
+  justify-content: center;
+  }
+
+main{
+  width: 100%;
+  overflow: hidden;
+}
+
+footer {
+  background-color: rgba(33,37,41);
+  color: white;
+  font-family: 'Roboto', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
+
+footer a {
+  color: white
+}
+
+.accordion {
+  color: black;
+}
+
+.me-auto .container {
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }

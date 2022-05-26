@@ -1,0 +1,25 @@
+.Header {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	min-height: 35vh;
+	width: 100%;
+	background: rgb(2, 0, 36);
+	background-image: url(banner2.jpg);
+	color: white;
+}
+
+.Header h1 {
+	font-size: 44px;
+}
+.banner{
+	width: 50%;
+	height: 80px;
+}
+.logo{
+	align-items: center;
+	text-align: center;
+	width: 230px;
+	
+}

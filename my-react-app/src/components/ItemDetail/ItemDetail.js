@@ -1,6 +1,6 @@
 import React, { useState, useContext } from "react";
 import { Card, Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import ItemCount from "../ItemCount/ItemCount";
 
@@ -9,6 +9,12 @@ import { CartContext } from "../../Context/CartContext/CartContext";
 const ItemDetail = (item) => {
   let [items, setItems] = useContext(CartContext);
   const [count, setCount] = useState(0);
+
+  const navigate = useNavigate();
+
+  const HandleClick = () => {
+    navigate("/cart");
+  };
 
   const addItem = (item, quantity) => {
     if (quantity === 0) {
@@ -42,7 +48,6 @@ const ItemDetail = (item) => {
     return items.some((obj) => obj.item.id === id);
   };
 
-  console.log(items);
   return (
     <div className="itemDetail">
       <div className="theItems">
@@ -74,11 +79,9 @@ const ItemDetail = (item) => {
             <button type="button" onClick={() => addItem(item.items, count)}>
               Agregar a mi carrito
             </button>
-            <Link to={"cart"}>
-              <button type="button" onClick={() => clear()}>
-                Terminar mi compra
-              </button>
-            </Link>
+            <button type="button" onClick={HandleClick}>
+              Terminar mi compra
+            </button>
           </Card.Body>
         </Card>
       </div>

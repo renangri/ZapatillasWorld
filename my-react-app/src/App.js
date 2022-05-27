@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 // Imports
 import "./App.css";
 import React from "react";
@@ -9,6 +8,7 @@ import NavBar from "./components/NavBar/NavBar";
 import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailContainer";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/Header/Header";
+import Cart from "./components/Cart/Cart";
 
 //Views
 import Home from "./views/Home";
@@ -31,35 +31,22 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/detail/:id" element={<ItemDetailContainer />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route path="*" element={<NotFound />} />
           </Routes>
         </div>
       </CartProvider>
     </Router>
-=======
-import React  from 'react';
-import './App.css';
-import Navbar1 from './componentes/Navbar';//Me traigo el componente Navbar
-import ItemListContainer from "./componentes/ItemListContainer/ItemListContainer"; //Me traigo el componente ItemListContainer
-//Me traigo el componente contador
-import 'bootstrap/dist/css/bootstrap.min.css';
+  );
+}
 
-
-function App() {
+function NotFound() {
   return (
-    <React.Fragment>
-    <div className="App">
-      <h1 className=" bg-dark text-white">ZapatillasWorld</h1>
-      <Navbar1/>
-
-      <ItemListContainer/>
-     
-      <h1>Contador</h1>  
-    
-    </div>
-    
-    </React.Fragment>
-   
->>>>>>> a6bf0c42967bfe67d3d933b960fe1883a4a06389
+    <>
+      {" "}
+      <br></br>
+      <h1>La página no existe</h1>
+    </>
   );
 }
 

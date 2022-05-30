@@ -1,22 +1,31 @@
 import React from 'react';
 import { Form } from "react-bootstrap";
+import './styleViews.css';
 
 
 
 const Contact = () => {
 
-	return<div>Contact
-		<Form>
-  <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-    <Form.Label>Email address</Form.Label>
-    <Form.Control type="email" placeholder="name@example.com" />
+	return <div>
+
+  <div className="containerContact">Contact
+	<>
+  <Form.Group className="mb-3">
+    <Form.Label>Disabled input</Form.Label>
+    <Form.Control placeholder="Disabled input" disabled />
   </Form.Group>
-  <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-    <Form.Label>Example textarea</Form.Label>
-    <Form.Control as="textarea" rows={3} />
+  <Form.Group className="mb-3">
+    <Form.Label>Disabled select menu</Form.Label>
+    <Form.Select disabled>
+      <option>Disabled select</option>
+    </Form.Select>
   </Form.Group>
-</Form>
+  <Form.Group className="mb-3">
+    <Form.Check type="checkbox" label="Can't check this" disabled />
+  </Form.Group>
+</>
 	</div>;
+  </div>
 };
 
 export default Contact;

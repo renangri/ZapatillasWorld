@@ -28,9 +28,9 @@ const ItemDetail = (item) => {
 
       items = removeItem(item.id);
 
-      items.push({ item: result, quantity: result.quantity });
+      setItems([{ item: result, quantity: result.quantity }, ...items]);
     } else {
-      items.push({ item: item, quantity: quantity });
+      setItems([{ item: item, quantity: quantity }, ...items]);
     }
   };
 
@@ -38,10 +38,6 @@ const ItemDetail = (item) => {
     const result = items.filter((obj) => obj.item.id !== id);
 
     return result;
-  };
-
-  const clear = () => {
-    setItems([]);
   };
 
   const isInCart = (id) => {
@@ -79,9 +75,16 @@ const ItemDetail = (item) => {
             <button type="button" onClick={() => addItem(item.items, count)}>
               Agregar a mi carrito
             </button>
-            <button type="button" onClick={HandleClick}>
-              Terminar mi compra
-            </button>
+            {items.length > 0 ? (
+              <>
+                <br />
+                <button type="button" onClick={HandleClick}>
+                  Terminar mi compra
+                </button>
+              </>
+            ) : (
+              <div></div>
+            )}
           </Card.Body>
         </Card>
       </div>

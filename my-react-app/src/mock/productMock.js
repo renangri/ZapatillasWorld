@@ -60,7 +60,7 @@ function delay(ms) {
 
 const productServices = async (id) => {
   await delay(2000);
-  if (!!id) {
+  if (id) {
     const item = arrayItems[id - 1];
     return item;
   }

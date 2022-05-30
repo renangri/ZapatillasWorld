@@ -1,11 +1,26 @@
 import CartWidget from "../CartWidget/CartWidget";
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-
+import './navBar.css';
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
+
+import { CartContext } from "../../Context/CartContext/CartContext";
 
 // este navbar es un componente sacado de react-bootstrap
 const NavBar = () => {
+  let [items, setItems] = useContext(CartContext);
+
+  let number = {
+    color: "white",
+    backgroundColor: "red",
+    borderRadius: "50px",
+    position: "relative",
+    left: "15px",
+  };
+
+  let totalQuantity = 0;
+  items.map((item) => (totalQuantity += item.quantity));
+
   return (
     <Navbar
       className="Navigation"
@@ -59,9 +74,16 @@ const NavBar = () => {
           </Nav>
           <Nav>
             <Container>
-              <Link className="Link" to="#">
-                <CartWidget></CartWidget>
-              </Link>
+              {items.length > 0 ? (
+                <div>
+                  <Link className="Link" to="/cart">
+                    <CartWidget></CartWidget>{" "}
+                  </Link>
+                  <h6 style={number}>{totalQuantity}</h6>
+                </div>
+              ) : (
+                <div></div>
+              )}
             </Container>
           </Nav>
         </Navbar.Collapse>

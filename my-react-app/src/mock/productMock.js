@@ -43,7 +43,7 @@ const arrayItems = [
 
   {
     id: 4,
-    title: "Nike Air Max Skate",
+    title: "Nike Air Max ",
     description: "Air Force 1 Nike Air Max Skate shoe Sneakers, nike, blue",
     pictureUrl: img2,
     price: 20000,

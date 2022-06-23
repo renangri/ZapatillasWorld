@@ -1,7 +1,7 @@
 import CartWidget from "../CartWidget/CartWidget";
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import './navBar.css';
+
 import { Navbar, Nav, Container, NavDropdown } from "react-bootstrap";
 
 import { CartContext } from "../../Context/CartContext/CartContext";
@@ -10,7 +10,7 @@ import { CartContext } from "../../Context/CartContext/CartContext";
 const NavBar = () => {
   let [items, setItems] = useContext(CartContext);
 
-  let number = {
+  const number = {
     color: "white",
     backgroundColor: "red",
     borderRadius: "50px",
@@ -18,12 +18,18 @@ const NavBar = () => {
     left: "15px",
   };
 
+  const categories = {
+    marginTop: "-8px",
+  };
+
   let totalQuantity = 0;
-  items.map((item) => (totalQuantity += item.quantity));
+
+  if (items.length > 0) items.map((item) => (totalQuantity += item.quantity));
+  if (items.lenght === 0) totalQuantity = 0;
 
   return (
     <Navbar
-      className="Navigation"
+      className="Navigation p-3"
       collapseOnSelect
       sticky="top"
       expand="lg"
@@ -32,15 +38,36 @@ const NavBar = () => {
       defaultactivekey="/home"
     >
       <Container>
-        <Navbar.Brand>
-          <Link to="/">
-            <img alt="" height="50" className="text-decoration-none" />
-            Inicio
-          </Link>
-        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
+            <Container>
+              <Link className="text-decoration-none" to="/">
+                Inicio
+              </Link>
+            </Container>
+            <Container style={categories}>
+              <NavDropdown
+                title={<span className="text-primary">Categorias</span>}
+                id="basic-nav-dropdown"
+              >
+                <NavDropdown.Item>
+                  <Link className="text-decoration-none" to="/category/urban">
+                    Urbanas
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link className="text-decoration-none" to="/category/running">
+                    Running
+                  </Link>
+                </NavDropdown.Item>
+                <NavDropdown.Item>
+                  <Link className="text-decoration-none" to="/category/new">
+                    Ultimos lanzamientos
+                  </Link>
+                </NavDropdown.Item>
+              </NavDropdown>
+            </Container>
             <Container>
               <Link className="text-decoration-none" to="/about">
                 Nosotros
@@ -53,23 +80,9 @@ const NavBar = () => {
               </Link>
             </Container>
             <Container>
-              <NavDropdown title="Productos" id="collasible-nav-dropdown">
-                <NavDropdown.Item>
-                  <Link className="text-decoration-none Link" to="#">
-                    Remeras
-                  </Link>
-                </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <Link className="Link" to="#">
-                    Camperas
-                  </Link>
-                </NavDropdown.Item>
-                <NavDropdown.Item>
-                  <Link className="Link" to="#">
-                    Gorras
-                  </Link>
-                </NavDropdown.Item>
-              </NavDropdown>
+              <Link className="text-decoration-none" to="/orders">
+                Ordenes
+              </Link>
             </Container>
           </Nav>
           <Nav>
@@ -79,10 +92,10 @@ const NavBar = () => {
                   <Link className="Link" to="/cart">
                     <CartWidget></CartWidget>{" "}
                   </Link>
-                  <h6 style={number}>{totalQuantity}</h6>
+                  <p style={number}> {totalQuantity} </p>
                 </div>
               ) : (
-                <div></div>
+                <></>
               )}
             </Container>
           </Nav>

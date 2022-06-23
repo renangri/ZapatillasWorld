@@ -1,4 +1,41 @@
-# Aplicacion venta de Zapatillas
+# proyecto ecommerce zapatillas
+El proyecto esta pensado para hacer un ecommerce de zapatillas y otros articulos 
+
+**Desafio  Entregable 1**
+Se agrego la app de react como se pedía
+
+**Desafio  Entregable 2**
+Se agrego el navbar como componente.
+se cambio el nombre de las pestañas.
+
+**Desafio  Entregable 3**
+Creé el componente CartWidget.js con su ícono y se ubico en el navbar.
+Creé el componente ItemListContainer.js con un greeting y que muestre el mensaje dentro de un contenedor.
+
+**Desafio  Entregable 4**
+
+se Creo el componente ItemCount para aumentar y bajar Stock.
+Desde ItemListContainer llamo cada producto, los valores del stock y el initial se los doy por prop, tal como pedía el desafío.
+Le puse un poco de estilo a mis productos, utilizando Cards de bootstrap-react.
+
+**Desafio  Entregable 5**
+se creo el componente Item.js
+se creo el componente ItemList.js que agrupa los items usando map.
+se utilizo async promise que hace que los items se rendericen a los 2 segundos de espera, es llamado desde productServices(items).
+Mis productos se muestran 2 segundos de carga después de que se muestre el título y el header.
+
+**Desafio  Entregable 6**
+se creo componente ItemDetail e ItemDetailContainer.
+ cada producto se va a /detail/:{id}, carga y muesta una card, además de un detalle en texto.
+Ahora también el Home carga.
+
+
+**Desafio  Entregable 7**
+ se agrego las rutas correspondietes (Inicio ,Nosotros, contacto,)
+ se puede navegar por las paginas
+
+
+
 
 # Getting Started with Create React App
 

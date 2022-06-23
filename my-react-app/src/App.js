@@ -9,6 +9,10 @@ import ItemDetailContainer from "./components/ItemDetailContainer/ItemDetailCont
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./components/Header/Header";
 import Cart from "./components/Cart/Cart";
+import CategorySearch from "./components/CategorySearch/CategorySearch";
+import ShippingInfo from "./components/Shipping/ShippingInfo";
+import Orders from "./components/Orders/Orders";
+import Order from "./components/Order/Order";
 
 //Views
 import Home from "./views/Home";
@@ -31,7 +35,11 @@ function App() {
             <Route path="/about" element={<About />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/detail/:id" element={<ItemDetailContainer />} />
+            <Route path="/category/:category" element={<CategorySearch />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/shipping" element={<ShippingInfo />} />
+            <Route path="/orders" element={<Orders />} />
+            <Route path="/order/:id" element={<Order />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </div>

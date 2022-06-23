@@ -1,10 +1,14 @@
 import React, { useState, useContext } from "react";
-import { Card, Container } from "react-bootstrap";
+import { Card, Container,Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import { FaShoppingCart, FaShoppingBag} from 'react-icons/fa';
+import moment from "moment";
+
 
 import ItemCount from "../ItemCount/ItemCount";
 
 import { CartContext } from "../../Context/CartContext/CartContext";
+import './itemDetail.css';
 
 const ItemDetail = (item) => {
   let [items, setItems] = useContext(CartContext);
@@ -21,6 +25,8 @@ const ItemDetail = (item) => {
       return;
     }
 
+    let total = item.price * quantity;
+
     if (isInCart(item.id)) {
       const result = items.find((obj) => obj.item.id === item.id);
 
@@ -28,9 +34,27 @@ const ItemDetail = (item) => {
 
       items = removeItem(item.id);
 
-      setItems([{ item: result, quantity: result.quantity }, ...items]);
+      total = result.item.price * result.quantity;
+
+      setItems([
+        {
+          item: result,
+          quantity: result.quantity,
+          date: moment().format("L"),
+          total: total,
+        },
+        ...items,
+      ]);
     } else {
-      setItems([{ item: item, quantity: quantity }, ...items]);
+      setItems([
+        {
+          item: item,
+          quantity: quantity,
+          date: moment().format("L"),
+          total: total,
+        },
+        ...items,
+      ]);
     }
   };
 
@@ -45,56 +69,62 @@ const ItemDetail = (item) => {
   };
 
   return (
-    <div className="itemDetail">
-      <div className="theItems">
-        <Card bg="secondary" text="light" style={{ width: "18rem" }}>
-          <Card.Text>
-            <br />
-            <span>{item.items.title}</span>
-            <br />
-            <span>
-              <span>${item.items.price}</span>
-            </span>
-          </Card.Text>
+    <div className="card">
+    <div className="left">
+      <img src={item.items.pictureUrl}
+ alt="shoe"/>
+    </div>
+    <div className="right">
+      <div className="product-info">
+     
+        <div className="details">
+          
+          <h3>Jordan</h3>
+          <h2>{item.items.title}</h2>
 
-          <Card.Img
-            variant="top"
-            src={item.items.pictureUrl}
-            alt="foto de producto"
-          />
+          <h4><span className="fa fa-dollar"></span>${item.items.price}</h4>
+  
+        </div>
+     
+        <ul>
+          <li>COLOR</li>
+          <li className="yellow"></li>
+          <li className="black"></li>
+          <li className="blue"></li>
+         
+        </ul>
 
-          <Card.Body>
-            <span>{item.items.description}</span> <br /> <br />
-            {/* aquí llamo el componente ItemCount */}
-            <ItemCount
+         
+        <ItemCount
               count={count}
               setCount={setCount}
               stock={item.items.stock}
               initial={item.items.initial}
             ></ItemCount>
-            <button type="button" onClick={() => addItem(item.items, count)}>
-              Agregar a mi carrito
-            </button>
-            {items.length > 0 ? (
-              <>
-                <br />
-                <button type="button" onClick={HandleClick}>
-                  Terminar mi compra
-                </button>
-              </>
-            ) : (
-              <div></div>
-            )}
-          </Card.Body>
-        </Card>
-      </div>
-      <div className="detailText">
-        <Container>
-          <h3>Detalles del producto:</h3>
-          <p> {item.items.details} </p>
-        </Container>
+         {items.length > 0 ? 
+         (
+        <>
+        <span className="foot" onClick={HandleClick} >Terminar Compra   <FaShoppingBag/> </span>
+              </>  
+        ) 
+        : 
+              (
+              <></>
+              ) }
+        <span className="foot" onClick={() => addItem(item.items, count) } >Agregar<FaShoppingCart/></span>
+        
+      
       </div>
     </div>
+     
+  <div className="detailText">
+  <Container>
+    <h3 className="product">Detalles del producto:</h3>
+    <p> {item.items.details} </p>
+  </Container>
+</div>
+  </div>
+    
   );
 };
 

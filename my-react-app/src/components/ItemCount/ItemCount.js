@@ -15,13 +15,16 @@ const ItemCount = (props) => {
       props.setCount(props.count - 1);
     }
   };
+const style={
+  color:"white",
+}
 
   return (
     <div className="itemcount-container">
       <Button variant="danger" onClick={onSubtraction}>
         -
       </Button>
-      <span> {props.count} </span>
+      <span style={style} > {props.count} </span>
       <Button variant="success" onClick={onAdd}>
         +
       </Button>
